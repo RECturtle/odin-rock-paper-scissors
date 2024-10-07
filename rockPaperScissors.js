@@ -32,7 +32,6 @@ function playRound(computerChoice, humanChoice) {
 	if (computerChoice === humanChoice) {
 		console.log(`You both chose ${humanChoice}. No one wins.`);
 		alert('Tie!');
-		setScore();
 		return;
 	}
 
@@ -40,28 +39,26 @@ function playRound(computerChoice, humanChoice) {
 		console.log('Human wins');
 		alert('You won this round!');
 		humanScore += 1;
-		setScore();
 	} else if (computerChoice === 'paper' && humanChoice === 'scissors') {
 		console.log('Human wins');
 		alert('You won this round!');
 		humanScore += 1;
-		setScore();
 	} else if (computerChoice === 'scissors' && humanChoice === 'rock') {
 		console.log('Human wins');
 		alert('You won this round!');
 		humanScore += 1;
-		setScore();
 	} else {
 		console.log('Computer wins!');
 		alert('The computer won this round!');
 		compScore += 1;
-		setScore();
 	}
 }
 
 function setScore() {
 	document.querySelector('.human').innerHTML = `Human Score: ${humanScore}`;
-	document.querySelector('.computer').innerHTML = `Computer Score: ${compScore}`;
+	document.querySelector(
+		'.computer'
+	).innerHTML = `Computer Score: ${compScore}`;
 }
 
 function playGame() {
@@ -75,6 +72,7 @@ function playGame() {
 		playRound(compChoice, humanChoice);
 	}
 
+	setScore();
 	console.log('===== Final Scores ======');
 	console.log(`Computer: ${compScore}`);
 	console.log(`Human   : ${humanScore}`);
